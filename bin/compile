@@ -14,6 +14,9 @@ if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
 
+echo "I want to move from ${BUILD_DIR}/${APP_BASE} to ${STAGE}"
+echo "Then i want to remove ${BUILD_DIR}"
+echo "Finally, I want to move from ${STAGE}/$(basename "$APP_BASE") into ${BUILD_DIR}"
 (
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
     mv "${STAGE}/$(basename "$APP_BASE")" "${BUILD_DIR}"
@@ -26,3 +29,5 @@ fi
 
 echo "Copied ${APP_BASE} to root of app successfully" | indent
 
+
+ls $BUILD_DIR
