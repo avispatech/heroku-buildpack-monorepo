@@ -6,6 +6,8 @@ In any case, how do you manage this on Heroku? You don't. Heroku applications as
 
 Enter the Monorepo buildpack, which is a copy of [heroku-buildpack-multi-procfile](https://github.com/heroku/heroku-buildpack-multi-procfile) except it moves the target path in to the root, rather than just the Procfile. This helps for ruby apps etc.
 
+This a fork from istoll/heroku-buildpack-monorepo, the difference is that the previous removes a directory, this one does not, so it doesn't violate Heroku's Testing infrastructure.
+
 # Usage
 
 1. Write a bunch of ~~Procfiles~~ apps and scatter them through out your code base.
