@@ -21,6 +21,8 @@ echo "Finally, I want to move from ${STAGE}/$(basename "$APP_BASE") into ${BUILD
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
     mv "${STAGE}/$(basename "$APP_BASE")" "${BUILD_DIR}"
 )
+ln -s "${BUILD_DIR}/${APP_BASE}/Gemfile" "${BUILD_DIR}/Gemfile"
+ln -s "${BUILD_DIR}/${APP_BASE}/Gemfile.lock" "${BUILD_DIR}/Gemfile.lock"
 
 if [ $? -ne 0 ]; then
     echo "FAILED to copy directory into place" | indent
